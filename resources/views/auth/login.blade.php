@@ -1,48 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    <form action="{{ route('login.perform') }}" method="post">
-        <span>
-            <legend>Name:</legend>
-            <input type="text" name="" id="" placeholder="name">
-        </span>
-        <span>
-            <legend>Password:</legend>
-            <input type="password" name="" id="" placeholder="password">
-        </span>
-
-
-        <input type="button" value="submit">
-    </form>
-
-
-</body>
-
-</html>
-
-
-{{-- @extends('layouts.auth-master')
+@extends('layouts.auth-master')
 
 @section('content')
-    <form method="post" action="{{ route('login.perform') }}">
+    <form method="post" action="{{ route('login.perform') }}" class="authPage align-items-center mt-4 mb-3">
+        @csrf
+        {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}" /> --}}
+        <img class="mb-4" src="{!! url('image/boot-1.jpg') !!}" alt="" width="72" height="57">
 
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        <img class="mb-4" src="{!! url('images/bootstrap-logo.svg') !!}" alt="" width="72" height="57">
+        <h1 class="h3 mb-3">Login</h1>
 
-        <h1 class="h3 mb-3 fw-normal">Login</h1>
-
-        @include('layouts.partials.messages')
+        @include('layouts.partials.message')
 
         <div class="form-group form-floating mb-3">
-            <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
+            <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username"
+                required="required" autofocus>
             <label for="floatingName">Email or Username</label>
             @if ($errors->has('username'))
                 <span class="text-danger text-left">{{ $errors->first('username') }}</span>
@@ -50,7 +20,8 @@
         </div>
 
         <div class="form-group form-floating mb-3">
-            <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password" required="required">
+            <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password"
+                required="required">
             <label for="floatingPassword">Password</label>
             @if ($errors->has('password'))
                 <span class="text-danger text-left">{{ $errors->first('password') }}</span>
@@ -61,4 +32,4 @@
 
         @include('auth.partials.copy')
     </form>
-@endsection --}}
+@endsection

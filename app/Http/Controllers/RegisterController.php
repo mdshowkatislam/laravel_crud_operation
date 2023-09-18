@@ -12,6 +12,8 @@ class RegisterController extends Controller
         return view('auth.register');
     }
     public function register(RegisterRequest $rk){
+
+        // dd($rk);
         $user=User::create($rk->validated());
         auth()->login($user);
 

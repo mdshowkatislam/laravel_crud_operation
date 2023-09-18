@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Interface\CalInterface;
+use App\services\myservice;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
+        // $this->app->singleton(CalInterface::class,myservice::class);
     }
 
     /**
@@ -25,6 +28,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         Schema::defaultStringLength(191);
+
+        // $this->app->bind(CalInterface::class,myservice::class);
     }
 }

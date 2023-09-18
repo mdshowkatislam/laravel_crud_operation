@@ -42,7 +42,7 @@
 
 <body class="text-center">
 
-    <main class="form-signin">
+    <main style="display: flex;">
 
         @yield('content')
 

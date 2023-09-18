@@ -1,13 +1,14 @@
 @extends('layouts.auth-master')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ assets('css/signin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/signin.css') }}">
 @endpush
-@section('content')
-    <form method="post" action="{{ route('register.perform') }}">
-        {{-- @csrf --}}
 
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+@section('content')
+    <form method="post" action="{{ route('register.perform') }}" class="authPage align-items-center">
+        @csrf
+
+        {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}" /> --}}
         <img class="mb-4" src="{!! url('image/boot-1.jpg') !!}" alt="" width="72" height="57">
 
         <h1 class="h3 mb-3 fw-normal">Register</h1>
@@ -21,12 +22,14 @@
             @endif
         </div>
 
+
+
         <div class="form-group form-floating mb-3">
-            <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username"
+            <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Username"
                 required="required" autofocus>
             <label for="floatingName">Username</label>
-            @if ($errors->has('username'))
-                <span class="text-danger text-left">{{ $errors->first('username') }}</span>
+            @if ($errors->has('name'))
+                <span class="text-danger text-left">{{ $errors->first('name') }}</span>
             @endif
         </div>
 
@@ -39,7 +42,7 @@
             @endif
         </div>
 
-        <div class="form-group form-floating mb-3">
+        <div class="form-group  mb-3">
             <input type="password" class="form-control" name="password_confirmation"
                 value="{{ old('password_confirmation') }}" placeholder="Confirm Password" required="required">
             <label for="floatingConfirmPassword">Confirm Password</label>
@@ -51,5 +54,7 @@
         <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
 
         @include('auth.partials.copy')
+
+
     </form>
 @endsection
