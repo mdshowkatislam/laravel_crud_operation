@@ -14,7 +14,45 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+
+
+                      <div>
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr >
+
+                            <th scope="col">id</th>
+                            <th scope="col">name</th>
+                            <th scope="col">email</th>
+                            <th scope="col">address</th>
+                            <th scope="col">link</th>
+                            <th scope="col">image_tag</th>
+                            <th scope="col">image</th>
+
+                          </tr>
+                        </thead>
+                        @foreach ($x as $item)
+                        <tbody>
+
+                          <tr>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->email }}</td>
+                            <td>{{ $item->address }}</td>
+                            <td>{{ $item->link }}</td>
+                            <td>{{ $item->image }}</td>
+                            <td><img src="{{asset('image/com_img') }}/{{ $item->image }}" alt="not found" height="40" width="50"></td>
+
+
+                          </tr>
+
+                        </tbody>
+                        @endforeach
+                      </table>
+
+
+                      </div>
                 </div>
             </div>
         </div>

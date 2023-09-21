@@ -5,3 +5,12 @@
 
     margin-left: 500px;
 }
+
+* {
+    background-color: yellow;
+}
+.pp{
+    width: fit-content;
+    height: 200px;
+    background: red;
+}
