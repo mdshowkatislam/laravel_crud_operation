@@ -59,14 +59,17 @@ class HomeController extends Controller
     return redirect()->back()->withInpute()->with('errors',"date insert problem");
     }
 
-    public function edit(Company $cmp){
+    public function edit($id){
+
+           $e_data=Company::find($id);
 
 
 
-        return view('company.edit',compact('cmp'));
+        return view('company.edit',compact('e_data'));
 
     }
     public function update(Request $rk,$id){
+
 
         $val_data=$rk->validate([
             'name'=>'required|max:100',
@@ -80,7 +83,8 @@ class HomeController extends Controller
 
         if($val_data){
             $company_to_update=Company::find($id);
-            $company_to_update->update($val_data);
+
+            $company_to_update->update($rk->all());
               return redirect('/home')->with('success');
         }
 
@@ -88,7 +92,9 @@ class HomeController extends Controller
 }
 
 public function destroy($id){
+
     $d_data=Company::find($id);
+
     if($d_data){
        $d_data->delete();
        return redirect('/home')->with('success', 'Post deleted successfully');

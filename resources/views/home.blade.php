@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container " >
+    <div class="row justify-content-center" >
+        <div class="col-md-8" style="background: cyan;padding:2px;width:100%">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -14,9 +14,7 @@
                         </div>
                     @endif
 
-
-
-                      <div>
+                      <div >
 
                       <table class="table table-striped table-bordered">
                         <thead>
@@ -29,6 +27,7 @@
                             <th scope="col">link</th>
                             <th scope="col">image_tag</th>
                             <th scope="col">image</th>
+                            <th scope="col">View | Edit | Delete</th>
 
                           </tr>
                         </thead>
@@ -43,6 +42,14 @@
                             <td>{{ $item->link }}</td>
                             <td>{{ $item->image }}</td>
                             <td><img src="{{asset('image/com_img') }}/{{ $item->image }}" alt="not found" height="40" width="50"></td>
+                            <td>
+
+                                 <div class="d-flex">
+                                    <div class="btn btn-info btn-sm  m-1">view</div>
+                                    <div class="btn btn-success btn-sm m-1">edit</div>
+                                    <div class="btn btn-danger btn-sm m-1">delete</div>
+                                 </div>
+                            </td>
 
 
                           </tr>

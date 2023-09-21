@@ -27,7 +27,7 @@
 
 
 
-                   <form action="{{ route('update') }}" method="POST">
+                   <form action="{{ route('update',$e_data->id) }}" method="POST">
                     @csrf
 
                      <div class="row">
