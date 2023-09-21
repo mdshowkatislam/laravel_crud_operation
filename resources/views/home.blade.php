@@ -45,9 +45,10 @@
                             <td>
 
                                  <div class="d-flex">
-                                    <div class="btn btn-info btn-sm  m-1">view</div>
-                                    <div class="btn btn-success btn-sm m-1">edit</div>
-                                    <div class="btn btn-danger btn-sm m-1">delete</div>
+
+                                    <a href="{{ route('view',$item->id) }}" class="btn btn-info btn-sm  m-1">view</div>
+                                    <a href="{{ route('edit',$item->id) }}" class="btn btn-success btn-sm m-1">edit</div>
+                                    <a href="{{ route('delete',$item->id) }}" class="btn btn-danger btn-sm m-1">delete</div>
                                  </div>
                             </td>
 

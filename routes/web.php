@@ -20,6 +20,7 @@ Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->na
 Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit');
 Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
 Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('delete');
+Route::get('/view/{id}', [App\Http\Controllers\HomeController::class, 'view'])->name('view');
 
 
 
