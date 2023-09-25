@@ -27,7 +27,7 @@
                             <th scope="col">link</th>
                             <th scope="col">image_tag</th>
                             <th scope="col">image</th>
-                            <th scope="col">View | Edit | Delete</th>
+                            <th scope="col">Action</th>
 
                           </tr>
                         </thead>
@@ -46,9 +46,9 @@
 
                                  <div class="d-flex">
 
-                                    <a href="{{ route('view',$item->id) }}" class="btn btn-info btn-sm  m-1">view</div>
-                                    <a href="{{ route('edit',$item->id) }}" class="btn btn-success btn-sm m-1">edit</div>
-                                    <a href="{{ route('delete',$item->id) }}" class="btn btn-danger btn-sm m-1">delete</div>
+                                    <a href="{{ route('view',$item->id) }}" class="btn btn-info btn-sm  m-1">view</a>
+                                    <a href="{{ route('edit',$item->id) }}" class="btn btn-success btn-sm m-1">edit</a>
+                                    <a href="{{ route('delete',$item->id) }}" class="btn btn-danger btn-sm m-1">delete</a>
                                  </div>
                             </td>
 

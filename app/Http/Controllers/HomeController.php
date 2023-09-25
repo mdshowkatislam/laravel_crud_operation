@@ -91,6 +91,13 @@ class HomeController extends Controller
     return redirect()->back()->withInpute()->with('errors',"date update problem");
 }
 
+        public function view($id){
+            // dd($id);
+            $view_data=Company::find($id);
+
+            return view("company.view",compact('view_data'));
+        }
+
 public function destroy($id){
 
     $d_data=Company::find($id);

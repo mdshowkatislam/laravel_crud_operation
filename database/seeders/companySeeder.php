@@ -24,7 +24,9 @@ class companySeeder extends Seeder
            "email"=>"tuhin@gmail.com",
            "address"=>"cumilla",
            "link"=>"https://localhost:8000/public/image/com-img",
-           "image"=>"tt1.jpg"
+           "image"=>"tt1.jpg",
+           "size"=>"80",
+           "type"=>"jpg"
 
 
         ],
@@ -33,7 +35,10 @@ class companySeeder extends Seeder
             "email"=>"abul@gmail.com",
             "address"=>"dhaka",
             "link"=>"https://localhost:8000/public/image/com-img",
-            "image"=>"tt2.jpg"
+            "image"=>"tt2.jpg",
+            "size"=>"90",
+            "type"=>"jpg"
+
 
          ],
         [
@@ -41,7 +46,10 @@ class companySeeder extends Seeder
             "email"=>"kobul@gmail.com",
             "address"=>"rangpur",
             "link"=>"https://localhost:8000/public/image/com-img",
-            "image"=>"tt3.jpg"
+            "image"=>"tt3.jpg",
+            "size"=>"100",
+            "type"=>"jpg"
+
 
          ],
            ]
