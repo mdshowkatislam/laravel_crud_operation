@@ -60,7 +60,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group col-md-4">
                                         <strong>Company image:</strong>
-                                        <input type="file" class="form-control " name="image" id="">
+                                        <input type="file" class="form-control " name="company_image" id="">
                                     </div>
                                 </div>
 

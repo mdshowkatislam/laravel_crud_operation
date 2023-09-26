@@ -53,10 +53,13 @@ class HomeController extends Controller
 
         if ($val_data) {
             Company::create($rk->all());
-
-            $imageName = time() . '.' . $rk->image->getClientOriginalExtension();
-            $rk->image->move(public_path('images'), $imageName);
-            $rk->image->storeAs('images', $imageName);
+            if ($file = $rk->hasFile('company_image')) {
+                $imageName = time() . '.' . $rk->image->getClientOriginalExtension();
+                $rk->image->move(public_path('images'), $imageName);
+                $rk->image->storeAs('images', $imageName);
+            } else {
+                return redirect('/home')->with('unsuccess', 'image input have problem');
+            }
 
             return redirect('/home')->with('success', 'upload succeded')->with('image', $imageName);
         }
