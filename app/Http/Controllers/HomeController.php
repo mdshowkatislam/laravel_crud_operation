@@ -19,8 +19,6 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-
-
     /**
      * Show the application dashboard.
      *
@@ -30,7 +28,7 @@ class HomeController extends Controller
     {
         $x = DB::table('companies')->get();
 
-        return view('home', compact('x'));
+        return view('backend.home', compact('x'));
     }
 
     public function create()
