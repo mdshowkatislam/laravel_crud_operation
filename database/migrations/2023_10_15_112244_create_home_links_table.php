@@ -13,17 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('home_links', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('parent');
-            $table->string('route');
-            $table->integer('sort');
+            $table->string('url_link');
             $table->tinyInteger('status');
-            $table->string('icon')->nullable();
-
-              $table->softDeletes();
-
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -35,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('home_links');
     }
 };

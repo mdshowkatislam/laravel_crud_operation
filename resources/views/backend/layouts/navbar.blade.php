@@ -34,7 +34,8 @@
             <i class="fa fa-user"></i> {{auth()->user()->name}}
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-            <a href="{{route('profile-management.change.password')}}" class="dropdown-item" >
+            {{--  <a href="{{route('profile-management.change.password')}}" class="dropdown-item" >  --}}
+            <a href="#" class="dropdown-item" >
                 <i class="fas fa-lock"></i> Change Password
             </a>
             <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

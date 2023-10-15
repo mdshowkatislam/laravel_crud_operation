@@ -1,18 +1,24 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LogoutController;
+// use App\Http\Controllers\LogoutController;
+// use App\Http\Controllers\RegisterController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', 'App\Http\Controllers\Auth\LoginController@show')->name('login');
+
+
 
 Auth::routes();
+
+Route::get('/logout', 'LogoutController@perform')->name('logOut');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
@@ -21,6 +27,15 @@ Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->
 Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
 Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('delete');
 Route::get('/view/{id}', [App\Http\Controllers\HomeController::class, 'view'])->name('view');
+
+
+//User
+Route::prefix('user')->group(function () {
+
+    Route::get('/user/status/', 'UserController@userStatus')->name('user.status.change');
+});
+
+Route::post('/data/statuschange', 'Backend\DefaultController@statusChange')->name('table.status.change');
 
 
 
@@ -41,8 +56,8 @@ Route::get('/view/{id}', [App\Http\Controllers\HomeController::class, 'view'])->
 //         /**
 //          * Login Routes
 //          */
-//         Route::get('/login', 'LoginController@show')->name('login.show');
-//         Route::post('/login', 'LoginController@login')->name('login.perform');
+//         // Route::get('/login', 'App\Http\Controllers\Auth\LoginController@show')->name('login');
+//         // Route::post('/login', 'LoginController@login')->name('login.perform');
 
 //     });
 
@@ -50,7 +65,6 @@ Route::get('/view/{id}', [App\Http\Controllers\HomeController::class, 'view'])->
 //         /**
 //          * Logout Routes
 //          */
-//         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+        // Route::get('/logout', 'LogoutController@perform')->name('logOut');
 //     });
 // });
-
