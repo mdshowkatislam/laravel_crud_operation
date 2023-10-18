@@ -16,7 +16,7 @@ class SiteSetting extends Model
         'site_short_description_bn',
         'site_header_logo',
         'site_footer_logo',
-        'site_favicon',
+        'site_favicon', 
         'site_banner_image',
         'site_email',
         'site_phone_primary',
