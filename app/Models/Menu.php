@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
+
+    public function permission()
+    {
+       return  $this->hasMany(MenuPermision::class);
+    }
+    public function menu_routes()
+    {
+       return  $this->hasMany(MenuPermision::class);
+    }
 }

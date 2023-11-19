@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,12 +13,14 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('user_roles', function (Blueprint $table) {
+        Schema::create('menu_permissions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('menu_id')->nullable();
             $table->unsignedBigInteger('role_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('casecade');
-            $table->foreign('role_id')->references('id')->on('role')->onDelete('casecade');
+            $table->string('permitted_route')->nullable();
+            $table->string('menu_from')->nullablel();
+            $table->foreign('menu_id')->references('id')->on('menus')->onDeleted('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +33,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('user_roles');
+        Schema::dropIfExists('menu_permissions');
     }
 };
