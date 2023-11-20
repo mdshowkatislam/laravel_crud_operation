@@ -11,6 +11,7 @@ class Menu extends Model
 
     public function permission()
     {
+      // dd('hi');
        return  $this->hasMany(MenuPermision::class);
     }
     public function menu_routes()
