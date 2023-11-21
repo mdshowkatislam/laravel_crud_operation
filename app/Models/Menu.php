@@ -10,8 +10,7 @@ class Menu extends Model
     use HasFactory;
 
     public function permission()
-    {
-      // dd('hi');
+   {
        return  $this->hasMany(MenuPermision::class);
     }
     public function menu_routes()

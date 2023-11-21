@@ -28,11 +28,17 @@ Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update
 Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('delete');
 Route::get('/view/{id}', [App\Http\Controllers\HomeController::class, 'view'])->name('view');
 
+Route::get('/all_users', [App\Http\Controllers\UserController::class, 'index'])->name('all_users');
+
 
 //User
 Route::prefix('user')->group(function () {
 
     Route::get('/user/status/', 'UserController@userStatus')->name('user.status.change');
+    Route::get('/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+    Route::post('/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+    Route::post('/store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+
 });
 
 Route::post('/data/statuschange', 'Backend\DefaultController@statusChange')->name('table.status.change');

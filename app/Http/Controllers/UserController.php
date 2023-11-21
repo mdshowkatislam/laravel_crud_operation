@@ -4,16 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Services\UserService;
+
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $userService;
+    public function __construct(UserService $var = null)
+    {
+        $this->userService = $var;
+    }
+
+    
+   
     public function index()
     {
-        //
+        $data['users'] = $this->userService->getAllUser();
+        return view('all-users', $data);
     }
 
     /**
@@ -34,7 +40,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd("store");
     }
 
     /**
@@ -56,7 +62,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['editData'] = $this->userService->getUserById($id);
+        return view('one-user', $data);
     }
 
     /**
@@ -68,15 +75,28 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $this->userService->getUserById($id);
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => "required",
+            'confirm_password' => "required|same:password"
+
+        ]);
+     
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->email_verified_at = date('Y-m-d H:i:s');
+        $data->password = bcrypt($request->password);
+
+        $data->save();
+        return redirect()->route('all_users')->with('sucees', 'user updated');
+    
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         //
